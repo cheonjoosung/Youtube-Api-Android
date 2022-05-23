@@ -1,4 +1,4 @@
-package kr.co.js.youtube_search.ui
+package kr.co.js.youtube_search.ui.search
 
 import android.content.Context
 import android.os.Bundle
@@ -6,8 +6,10 @@ import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import kr.co.js.youtube_search.databinding.ActivityMainBinding
+import kr.co.js.youtube_search.ui.VideoApplication
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +18,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
+
+    val mainViewModel: MainActivityViewModel by viewModels {
+        MainActivityViewModelFactory((this.applicationContext as VideoApplication).searchRepository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +41,10 @@ class MainActivity : AppCompatActivity() {
 
                 true
             }
+        }
+
+        mainViewModel.allSearchResult.observe(this) { list ->
+
         }
     }
 
