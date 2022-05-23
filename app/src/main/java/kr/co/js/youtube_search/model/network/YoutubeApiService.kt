@@ -1,6 +1,8 @@
 package kr.co.js.youtube_search.model.network
 
 import kr.co.js.youtube_search.model.vo.YoutubeVideo
+import kr.co.js.youtube_search.model.vo.YoutubeVideoInfo
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -35,5 +37,5 @@ interface YoutubeApiService {
         @Query("key") apiKey: String,
         @Query("id") videoId: String,
         @Query("part") part: String = "contentDetails, statistics",
-    ): Response<YoutubeVideo>
+    ): Response<YoutubeVideoInfo>
 }

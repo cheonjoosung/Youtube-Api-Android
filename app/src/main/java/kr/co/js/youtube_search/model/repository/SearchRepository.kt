@@ -12,15 +12,11 @@ class SearchRepository(
 
     private val apiKey = ""
 
-    fun getYoutubeVideo() {
-
-    }
-
     /**
      * 유투브 비디오 검색
      */
     @WorkerThread
-    suspend fun requestVideos(searchText: String) =
+    suspend fun getYoutubeVideo(searchText: String) =
         YoutubeApiRequestFactory.retrofit.getYouTubeVideos(
             apiKey = apiKey, query = searchText, videoOrder = "relevance", maxResults = 20
         )

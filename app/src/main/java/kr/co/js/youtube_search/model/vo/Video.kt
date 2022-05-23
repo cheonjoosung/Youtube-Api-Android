@@ -15,5 +15,23 @@ data class Video(
     val videoId: String,
 
     @ColumnInfo(name = "title")
-    val title: String
+    val title: String,
+
+    @ColumnInfo(name = "description")
+    val description: String,
+
+    @ColumnInfo(name = "publishedAt")
+    val publishedAt: String,
+
+    @ColumnInfo(name = "imgUrl")
+    val imgUrl: String,
+
+    @ColumnInfo(name = "duration")
+    var duration: String = "0",
+
+    @ColumnInfo(name = "channelTitle")
+    val channelTitle: String,
+
+    @ColumnInfo(name = "viewCount")
+    var viewCount: String = "0"
 ) : Parcelable
