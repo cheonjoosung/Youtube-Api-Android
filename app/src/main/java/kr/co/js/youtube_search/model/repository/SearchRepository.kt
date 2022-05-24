@@ -1,7 +1,6 @@
 package kr.co.js.youtube_search.model.repository
 
 import androidx.annotation.WorkerThread
-import kr.co.js.youtube_search.model.dao.SearchDao
 import kr.co.js.youtube_search.model.network.YoutubeApiRequestFactory
 
 class SearchRepository{
@@ -18,7 +17,7 @@ class SearchRepository{
         )
 
     @WorkerThread
-    suspend fun requestMoreVideos(searchText: String, nextPageToken: String) =
+    suspend fun getYouTubeMoreVideos(searchText: String, nextPageToken: String) =
         YoutubeApiRequestFactory.retrofit.getYouTubeMoreVideos(
             apiKey = apiKey,
             query = searchText,
