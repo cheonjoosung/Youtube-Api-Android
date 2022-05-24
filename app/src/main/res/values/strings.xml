@@ -5,4 +5,5 @@
     <string name="dot">·</string>
     <string name="input_search_keyword">Input Search Keyword</string>
     <string name="search">search</string>
+    <string name="description">설명</string>
 </resources>
