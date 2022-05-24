@@ -4,13 +4,9 @@ import androidx.annotation.WorkerThread
 import kr.co.js.youtube_search.model.dao.SearchDao
 import kr.co.js.youtube_search.model.network.YoutubeApiRequestFactory
 
-class SearchRepository(
-    private val searchDao: SearchDao
-) {
+class SearchRepository{
 
-    val allSearchResult = searchDao.getAllSearchResult()
-
-    private val apiKey = ""
+    private val apiKey = "AIzaSyDJbO6MYWglVOs9PI8uejU4N7qDoewaYC8"
 
     /**
      * 유투브 비디오 검색
@@ -18,7 +14,7 @@ class SearchRepository(
     @WorkerThread
     suspend fun getYoutubeVideo(searchText: String) =
         YoutubeApiRequestFactory.retrofit.getYouTubeVideos(
-            apiKey = apiKey, query = searchText, videoOrder = "relevance", maxResults = 20
+            apiKey = apiKey, query = searchText, videoOrder = "relevance", maxResults = 10
         )
 
     @WorkerThread
@@ -32,8 +28,8 @@ class SearchRepository(
         )
 
     @WorkerThread
-    suspend fun requestVideosInfo(videoId: String) =
-        YoutubeApiRequestFactory.retrofit.getYoutubeTrendVideosInfo(
+    suspend fun requestVideoInfo(videoId: String) =
+        YoutubeApiRequestFactory.retrofit.getVideoInfo(
             apiKey = apiKey,
             videoId = videoId
         )

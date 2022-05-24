@@ -3,4 +3,6 @@
     <string name="thumbnail">thumbnail</string>
     <string name="channel_logo">channel_logo</string>
     <string name="dot">·</string>
+    <string name="input_search_keyword">Input Search Keyword</string>
+    <string name="search">search</string>
 </resources>

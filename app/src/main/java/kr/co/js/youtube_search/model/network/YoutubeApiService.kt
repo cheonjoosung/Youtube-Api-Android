@@ -33,7 +33,7 @@ interface YoutubeApiService {
     ): Response<YoutubeVideo>
 
     @GET("videos")
-    suspend fun getYoutubeTrendVideosInfo(
+    suspend fun getVideoInfo(
         @Query("key") apiKey: String,
         @Query("id") videoId: String,
         @Query("part") part: String = "contentDetails, statistics",

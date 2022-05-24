@@ -12,10 +12,8 @@ class MainActivityViewModel(
         val TAG = MainActivityViewModel::class.java.simpleName
     }
 
-    val allSearchResult = searchRepository.allSearchResult.asLiveData()
-
     val firstSearch = MutableLiveData<List<Video>>()
-    val moreSearch = mutableListOf<Video>()
+    val moreSearch = MutableLiveData<List<Video>>()
 
     var nextPageToken = ""
 
@@ -62,7 +60,7 @@ class MainActivityViewModel(
                 coroutineScope {
                     (0 until idList.size).map { idx ->
                         async(Dispatchers.IO) {
-                            val resultInfo = searchRepository.requestVideosInfo(idList[idx])
+                            val resultInfo = searchRepository.requestVideoInfo(idList[idx])
 
                             when (resultInfo.code()) {
                                 200 -> {
@@ -74,10 +72,9 @@ class MainActivityViewModel(
                                                 for (item in list) {
                                                     findVideo.duration =
                                                         item.contentDetails.duration
-                                                    findVideo.duration =
+                                                    findVideo.viewCount =
                                                         item.statistics.viewCount.toString()
                                                 }
-
                                             }
                                         }
                                     }
@@ -87,10 +84,11 @@ class MainActivityViewModel(
                                 }
                             }
                         }
-                    }
-                }.awaitAll()
+                    }.awaitAll()
 
-                firstSearch.postValue(convertedList)
+                    firstSearch.postValue(convertedList)
+                }
+
             }
             else -> {
                 Log.e(TAG, "onFailure ${result.message()}")
@@ -102,6 +100,8 @@ class MainActivityViewModel(
 
     fun getYoutubeVideoMore(keyword: String) {
 
+        if (nextPageToken.isEmpty()) return
+        Log.e(TAG, "keyword $keyword")
     }
 }
 

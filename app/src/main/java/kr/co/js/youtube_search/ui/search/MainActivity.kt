@@ -3,6 +3,7 @@ package kr.co.js.youtube_search.ui.search
 import MainActivityViewModel
 import MainActivityViewModelFactory
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.EditorInfo
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import kr.co.js.youtube_search.databinding.ActivityMainBinding
 import kr.co.js.youtube_search.ui.VideoApplication
+import kr.co.js.youtube_search.ui.YoutubePlayerActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,7 +49,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainViewModel.firstSearch.observe(this) { list ->
+            binding.rvSearchResult.adapter = SearchAdapter(list.toMutableList()).apply {
+                videoClick = { video ->
+                    Intent(this@MainActivity, YoutubePlayerActivity::class.java).apply {
+                        putExtra(YoutubePlayerActivity.VIDEO, video)
+                        startActivity(this)
+                    }
+                }
+            }
+        }
 
+        mainViewModel.moreSearch.observe(this) { addList ->
+            (binding.rvSearchResult.adapter as SearchAdapter).addMoreVideoList(addList.toMutableList())
         }
     }
 
@@ -65,7 +78,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideKeyboard() {
         binding.etSearch.clearFocus()
-        val inputMethodManager = applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(binding.etSearch.windowToken, 0)
     }
 }
