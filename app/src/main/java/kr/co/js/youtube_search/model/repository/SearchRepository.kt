@@ -5,7 +5,8 @@ import kr.co.js.youtube_search.model.network.YoutubeApiRequestFactory
 
 class SearchRepository{
 
-    private val apiKey = "AIzaSyDJbO6MYWglVOs9PI8uejU4N7qDoewaYC8"
+    //TODO NEED GOOGLE APIKEY for youtube (https://console.cloud.google.com/apis)
+    private val apiKey = ""
 
     /**
      * 유투브 비디오 검색
