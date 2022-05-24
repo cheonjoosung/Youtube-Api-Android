@@ -10,7 +10,7 @@ This is "Youtube Search Sample" using youtube api(search & video) and used Pierf
 1. Go to [Google API](https://console.cloud.google.com/apis)
 2. Then, make api & auto information for youtube data v3. Copy API Key
 3. "Open SearchRepository.kt" paste "apiKey"
-4. Run App
+4. Run App 
 
 ## 참조(Reference)
 
