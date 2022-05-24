@@ -11,7 +11,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kr.co.js.youtube_search.databinding.ActivityMainBinding
 import kr.co.js.youtube_search.ui.VideoApplication
 import kr.co.js.youtube_search.ui.YoutubePlayerActivity
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 searchYoutube(binding.etSearch.text.toString())
             }
 
-            etSearch.setOnEditorActionListener { _, id, keyEvent ->
+            etSearch.setOnEditorActionListener { _, id, _ ->
                 if (id == EditorInfo.IME_ACTION_SEARCH) {
                     searchYoutube(etSearch.text.toString())
                 }
@@ -62,6 +63,22 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.moreSearch.observe(this) { addList ->
             (binding.rvSearchResult.adapter as SearchAdapter).addMoreVideoList(addList.toMutableList())
         }
+
+        binding.rvSearchResult.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                binding.rvSearchResult.adapter?.let {
+                    val lastVisibleItemPosition =
+                        (binding.rvSearchResult.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
+
+                    if (lastVisibleItemPosition == it.itemCount - 1) {
+                        Toast.makeText(applicationContext, "Request More Videos", Toast.LENGTH_SHORT).show()
+                        mainViewModel.getYoutubeVideoMore()
+                    }
+                }
+            }
+        })
     }
 
     private fun searchYoutube(keyword: String) {
