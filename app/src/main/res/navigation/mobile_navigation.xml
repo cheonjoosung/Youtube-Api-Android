@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_my">
+
+    <fragment
+        android:id="@+id/navigation_my"
+        android:name="kr.co.js.youtube_api.ui.my.MyVideoFragment"
+        android:label="@string/fragment_my_title"
+        tools:layout="@layout/fragment_my_video" />
+
+    <fragment
+        android:id="@+id/navigation_trend"
+        android:name="kr.co.js.youtube_api.ui.trend.TrendVideoFragment"
+        android:label="@string/fragment_trend_title"
+        tools:layout="@layout/fragment_trend_video" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="kr.co.js.youtube_api.ui.search.SearchVideoFragment"
+        android:label="@string/fragment_search_title"
+        tools:layout="@layout/fragment_search_video" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="kr.co.js.youtube_api.ui.setting.SettingsFragment"
+        android:label="@string/fragment_setting_title" />
+
+</navigation>

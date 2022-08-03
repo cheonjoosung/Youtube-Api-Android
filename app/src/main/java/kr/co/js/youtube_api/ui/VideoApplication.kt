@@ -6,5 +6,5 @@ import kr.co.js.youtube_api.model.repository.SearchRepository
 
 @HiltAndroidApp
 class VideoApplication : Application() {
-    val searchRepository by lazy { SearchRepository() }
+
 }
