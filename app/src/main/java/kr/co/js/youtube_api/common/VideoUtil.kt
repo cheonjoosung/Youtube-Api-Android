@@ -1,4 +1,4 @@
-package kr.co.js.youtube_api.util
+package kr.co.js.youtube_api.common
 
 import java.text.ParseException
 import java.text.SimpleDateFormat

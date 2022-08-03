@@ -7,7 +7,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import kr.co.js.youtube_api.databinding.ActivityYoutubePlayerBinding
 import kr.co.js.youtube_api.model.vo.Video
-import kr.co.js.youtube_api.util.VideoUtil
+import kr.co.js.youtube_api.common.VideoUtil
 
 class YoutubePlayerActivity : AppCompatActivity() {
 
