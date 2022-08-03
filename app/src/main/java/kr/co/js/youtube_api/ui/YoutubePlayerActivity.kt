@@ -1,13 +1,13 @@
-package kr.co.js.youtube_search.ui
+package kr.co.js.youtube_api.ui
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import kr.co.js.youtube_search.databinding.ActivityYoutubePlayerBinding
-import kr.co.js.youtube_search.model.vo.Video
-import kr.co.js.youtube_search.util.VideoUtil
+import kr.co.js.youtube_api.databinding.ActivityYoutubePlayerBinding
+import kr.co.js.youtube_api.model.vo.Video
+import kr.co.js.youtube_api.util.VideoUtil
 
 class YoutubePlayerActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package kr.co.js.youtube_search.model.network
+package kr.co.js.youtube_api.model.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

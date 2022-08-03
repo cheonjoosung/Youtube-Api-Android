@@ -1,6 +1,6 @@
-package kr.co.js.youtube_search.domain.youtube
+package kr.co.js.youtube_api.domain.youtube
 
-import kr.co.js.youtube_search.model.repository.SearchRepository
+import kr.co.js.youtube_api.model.repository.SearchRepository
 import javax.inject.Inject
 
 class YoutubeBaseUseCase @Inject constructor(

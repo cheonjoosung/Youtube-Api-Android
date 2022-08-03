@@ -1,4 +1,4 @@
-package kr.co.js.youtube_search
+package kr.co.js.youtube_api
 
 import org.junit.Test
 

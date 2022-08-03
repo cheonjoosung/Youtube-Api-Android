@@ -1,7 +1,7 @@
-package kr.co.js.youtube_search.model.repository
+package kr.co.js.youtube_api.model.repository
 
 import androidx.annotation.WorkerThread
-import kr.co.js.youtube_search.model.network.YoutubeApiRequestFactory
+import kr.co.js.youtube_api.model.network.YoutubeApiRequestFactory
 
 class SearchRepository{
 

@@ -1,8 +1,7 @@
-package kr.co.js.youtube_search.model.network
+package kr.co.js.youtube_api.model.network
 
-import kr.co.js.youtube_search.model.vo.YoutubeVideo
-import kr.co.js.youtube_search.model.vo.YoutubeVideoInfo
-import retrofit2.Call
+import kr.co.js.youtube_api.model.vo.YoutubeVideo
+import kr.co.js.youtube_api.model.vo.YoutubeVideoInfo
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

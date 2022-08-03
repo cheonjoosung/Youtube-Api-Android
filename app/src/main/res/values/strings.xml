@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Youtube_Api                 </string>
+    <string name="app_name">Youtube_Api</string>
     <string name="thumbnail">thumbnail</string>
     <string name="channel_logo">channel_logo</string>
     <string name="dot">·</string>

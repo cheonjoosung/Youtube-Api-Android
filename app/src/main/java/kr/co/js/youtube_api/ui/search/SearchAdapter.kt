@@ -1,12 +1,12 @@
-package kr.co.js.youtube_search.ui.search
+package kr.co.js.youtube_api.ui.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kr.co.js.youtube_search.databinding.ItemVideoBinding
-import kr.co.js.youtube_search.model.vo.Video
-import kr.co.js.youtube_search.util.VideoUtil
+import kr.co.js.youtube_api.databinding.ItemVideoBinding
+import kr.co.js.youtube_api.model.vo.Video
+import kr.co.js.youtube_api.util.VideoUtil
 
 class SearchAdapter(
     private val list: MutableList<Video>

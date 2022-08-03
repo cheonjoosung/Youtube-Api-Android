@@ -1,4 +1,4 @@
-package kr.co.js.youtube_search.ui.search
+package kr.co.js.youtube_api.ui.search
 
 import MainActivityViewModel
 import MainActivityViewModelFactory
@@ -13,9 +13,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kr.co.js.youtube_search.databinding.ActivityMainBinding
-import kr.co.js.youtube_search.ui.VideoApplication
-import kr.co.js.youtube_search.ui.YoutubePlayerActivity
+import kr.co.js.youtube_api.databinding.ActivityMainBinding
+import kr.co.js.youtube_api.ui.VideoApplication
+import kr.co.js.youtube_api.ui.YoutubePlayerActivity
 
 class MainActivity : AppCompatActivity() {
 

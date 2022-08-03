@@ -1,4 +1,4 @@
-package kr.co.js.youtube_search.model.vo
+package kr.co.js.youtube_api.model.vo
 
 import android.os.Parcelable
 import com.google.gson.annotations.Expose

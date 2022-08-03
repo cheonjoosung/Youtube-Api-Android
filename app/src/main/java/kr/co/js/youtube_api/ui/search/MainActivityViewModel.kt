@@ -1,8 +1,8 @@
 import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.*
-import kr.co.js.youtube_search.model.repository.SearchRepository
-import kr.co.js.youtube_search.model.vo.Video
+import kr.co.js.youtube_api.model.repository.SearchRepository
+import kr.co.js.youtube_api.model.vo.Video
 
 class MainActivityViewModel(
     private val searchRepository: SearchRepository
