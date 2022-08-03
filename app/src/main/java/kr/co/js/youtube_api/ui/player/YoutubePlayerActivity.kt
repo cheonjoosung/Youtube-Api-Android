@@ -1,4 +1,4 @@
-package kr.co.js.youtube_api.ui
+package kr.co.js.youtube_api.ui.player
 
 import android.os.Bundle
 import android.util.Log

@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Youtube_Search">
         <activity
-            android:name="kr.co.js.youtube_api.ui.YoutubePlayerActivity"
+            android:name="kr.co.js.youtube_api.ui.player.YoutubePlayerActivity"
             android:exported="false" />
         <activity
-            android:name="kr.co.js.youtube_api.ui.search.MainActivity"
+            android:name="kr.co.js.youtube_api.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
