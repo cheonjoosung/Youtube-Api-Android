@@ -1,12 +1,11 @@
-package kr.co.js.youtube_api.model.repository
+package kr.co.js.youtube_api.data.repository
 
 import androidx.annotation.WorkerThread
 import kr.co.js.youtube_api.model.network.YoutubeApiRequestFactory
 
 class SearchRepository{
 
-    //TODO NEED GOOGLE APIKEY for youtube (https://console.cloud.google.com/apis)
-    private val apiKey = ""
+    private val apiKey = "AIzaSyDJbO6MYWglVOs9PI8uejU4N7qDoewaYC8"
 
     /**
      * 유투브 비디오 검색
