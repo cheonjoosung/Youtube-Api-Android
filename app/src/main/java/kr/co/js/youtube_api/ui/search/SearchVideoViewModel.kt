@@ -1,21 +1,20 @@
 package kr.co.js.youtube_api.ui.search
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import kr.co.js.youtube_api.model.repository.SearchRepository
+import kr.co.js.youtube_api.domain.search.SearchVideoUseCase
 import kr.co.js.youtube_api.model.vo.Video
+import javax.inject.Inject
 
-class SearchVideoViewModel(
-    private val searchRepository: SearchRepository
+class SearchVideoViewModel @Inject constructor(
+    private val searchVideoUseCase: SearchVideoUseCase
 ) : ViewModel() {
 
     companion object {
-        val TAG = SearchVideoViewModel::class.java.simpleName
+        val TAG: String = SearchVideoViewModel::class.java.simpleName
     }
 
     val firstSearch = MutableLiveData<List<Video>>()
@@ -26,7 +25,15 @@ class SearchVideoViewModel(
 
     fun getYoutubeVideo(keyword: String) = viewModelScope.launch {
         savedKeyword = keyword
+        val result = searchVideoUseCase.invoke(savedKeyword, "")
 
+        if (result.isSuccess) {
+
+        } else {
+
+        }
+
+        /*
         val result = searchRepository.getYoutubeVideo(keyword)
 
         when (result.code()) {
@@ -103,14 +110,14 @@ class SearchVideoViewModel(
             else -> {
                 Log.e(TAG, "onFailure ${result.message()}")
             }
-        }
+        }*/
 
     }
 
     fun getYoutubeVideoMore() = viewModelScope.launch {
         if (nextPageToken.isEmpty() || savedKeyword.isEmpty()) return@launch
 
-        val result = searchRepository.getYouTubeMoreVideos(savedKeyword, nextPageToken)
+        /*val result = searchRepository.getYouTubeMoreVideos(savedKeyword, nextPageToken)
 
         when (result.code()) {
             200 -> {
@@ -186,20 +193,7 @@ class SearchVideoViewModel(
             else -> {
                 Log.e(TAG, "onFailure ${result.message()}")
             }
-        }
+        }*/
 
-    }
-}
-
-class SearchVideoViewModelFactory(
-    private val context: Context
-) : ViewModelProvider.Factory {
-
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(SearchVideoViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return SearchVideoViewModel(SearchRepository()) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

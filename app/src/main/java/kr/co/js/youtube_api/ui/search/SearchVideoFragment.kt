@@ -30,9 +30,7 @@ class SearchVideoFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchVideoBinding
 
-    private val searchVideoViewModel: SearchVideoViewModel by viewModels {
-        SearchVideoViewModelFactory(requireContext())
-    }
+    private val searchVideoViewModel: SearchVideoViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
