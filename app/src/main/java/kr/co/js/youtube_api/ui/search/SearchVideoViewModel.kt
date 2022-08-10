@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
+import kr.co.js.youtube_api.data.model.SearchRequestParams
+import kr.co.js.youtube_api.data.model.SearchType
 import kr.co.js.youtube_api.domain.search.SearchVideoUseCase
 import kr.co.js.youtube_api.model.vo.Video
 import javax.inject.Inject
@@ -25,12 +27,13 @@ class SearchVideoViewModel @Inject constructor(
 
     fun getYoutubeVideo(keyword: String) = viewModelScope.launch {
         savedKeyword = keyword
-        val result = searchVideoUseCase.invoke(savedKeyword, "")
+        searchVideoUseCase.invoke(SearchRequestParams(keyword, "", SearchType.First)).run {
 
-        if (result.isSuccess) {
-
-        } else {
-
+            if (this.isFailure) {
+                Log.e(TAG, "searchVideoUseCase Success")
+            } else {
+                Log.e(TAG, "searchVideoUseCase Fail")
+            }
         }
 
         /*
