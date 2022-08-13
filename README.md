@@ -3,6 +3,14 @@
 This is "Youtube Api Sample" using youtube api(search & video) and used PierfrancescoSoffritti/android-youtube-player.
 이 앱은 유튜브 API(search & video)를 사용하여 만든 샘플이고 PierfrancescoSoffritti/android-youtube-player을 사용했습니다.
 
+## Stack & Skill
+- Kotlin & Android
+- Retrofit2, Room, Glide, Hilt, ViewBinding
+- MVVM + Clean Architectrue, AAC
+
+## App Structure
+
+
 ## Sample
 <img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/sample.gif">
 
