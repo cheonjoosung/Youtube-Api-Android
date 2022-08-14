@@ -11,4 +11,6 @@ interface YoutubeRemoteDataSource {
     suspend fun searchYoutubeMore(searchText: String, nextPageToken: String): Response<YoutubeVideo>
 
     suspend fun getYoutubeVideoInfo(videoId: String): Response<YoutubeVideoInfo>
+
+    suspend fun getTrendYoutubeVideo(): Response<YoutubeVideoInfo>
 }

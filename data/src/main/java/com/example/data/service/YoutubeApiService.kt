@@ -37,4 +37,13 @@ interface YoutubeApiService {
         @Query("id") videoId: String,
         @Query("part") part: String = "contentDetails, statistics",
     ): Response<YoutubeVideoInfo>
+
+    @GET("videos")
+    suspend fun getYoutubeTrendVideos(
+        @Query("key") apiKey: String,
+        @Query("regionCode") regionCode: String,
+        @Query("maxResults") maxResults: Int,
+        @Query("chart") chart: String = "mostPopular",
+        @Query("part") part: String = "snippet, contentDetails, statistics",
+    ): Response<YoutubeVideoInfo>
 }

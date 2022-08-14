@@ -2,10 +2,7 @@ package com.example.data.mapper
 
 import com.example.data.model.YoutubeVideo
 import com.example.data.model.YoutubeVideoInfo
-import com.example.domain.model.ApiResult
-import com.example.domain.model.Video
-import com.example.domain.model.VideoInfo
-import com.example.domain.model.VideoResult
+import com.example.domain.model.*
 
 object YoutubeMapper {
 
@@ -68,6 +65,43 @@ object YoutubeMapper {
                         channelTitle = ""
                     )
                 )
+            } ?: run {
+                ApiResult.Error()
+            }
+
+        }
+    }
+
+    fun youtubeTrendMapper(
+        youtubeVideoInfo: YoutubeVideoInfo?
+    ): ApiResult<TrendVideoResult> {
+        return if (youtubeVideoInfo?.items.isNullOrEmpty()) ApiResult.Error()
+        else {
+
+            youtubeVideoInfo?.items?.let { list ->
+
+                val trendVideoResult = TrendVideoResult()
+
+                val tempList = mutableListOf<VideoInfo>()
+
+                for (item in list) {
+                    tempList.add(
+                        VideoInfo(
+                            videoId = item.id,
+                            title = item.snippet.title,
+                            description = item.snippet.description,
+                            publishedAt = item.snippet.publishedAt,
+                            imgUrl = item.snippet.thumbnails.medium.url,
+                            channelTitle = item.snippet.channelTitle,
+                            duration = item.contentDetails.duration,
+                            viewCount = item.statistics.viewCount ?: "0"
+                        )
+                    )
+                }
+
+                trendVideoResult.videoList.addAll(tempList)
+                ApiResult.Success(trendVideoResult)
+
             } ?: run {
                 ApiResult.Error()
             }

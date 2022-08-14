@@ -3,6 +3,7 @@ package com.example.data.source
 import com.example.data.model.YoutubeVideo
 import com.example.data.model.YoutubeVideoInfo
 import com.example.data.service.YoutubeApiService
+import com.example.data.utils.Utils
 import retrofit2.Response
 import retrofit2.Retrofit
 import javax.inject.Inject
@@ -37,5 +38,10 @@ class YoutubeRemoteDataSourceImpl @Inject constructor(
             apiKey = apiKey,
             videoId = videoId
         )
+    }
+
+    override suspend fun getTrendYoutubeVideo(): Response<YoutubeVideoInfo> {
+        return youtubeApiService.getYoutubeTrendVideos(
+            apiKey = apiKey, regionCode = Utils().getISORegionCode(), maxResults = 50)
     }
 }
