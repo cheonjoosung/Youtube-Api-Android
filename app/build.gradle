@@ -41,25 +41,12 @@ android {
 dependencies {
 
     // for module
-    implementation(":data")
-    implementation(":domain")
-    implementation(":presentation")
+    implementation project(":data")
+    implementation project(":domain")
+    implementation project(":presentation")
 
     // for google
     implementation(Google.MATERIAL)
-
-    // for androidX
-    implementation(AndroidX.CORE_KTX)
-    implementation(AndroidX.APP_COMPAT)
-    implementation(AndroidX.CONSTRAINT_LAYOUT)
-    implementation(AndroidX.LEGACY_SUPPORT)
-    implementation(AndroidX.PREFERENCE)
-    implementation(AndroidX.NAVIGATION_UI)
-    implementation(AndroidX.NAVIGATION_FRAGMENT)
-
-    implementation(AndroidX.VIEW_MODEL)
-    implementation(AndroidX.LIVE_DATA)
-    implementation(AndroidX.COMMON_JAVA)
 
     // for Retrofit2
     implementation(Retrofit.RETROFIT2)
@@ -70,16 +57,6 @@ dependencies {
     implementation(OkHttp.LOGGING_INTERCEPTOR)
     implementation(OkHttp.OKHTTP)
 
-    // for RX
-    implementation(RxJava.RX_ANDROID)
-    implementation(RxJava.RX_KOTLIN)
-
-    // for Glide
-    implementation(Glide.GLIDE)
-    annotationProcessor(Glide.GLIDE_COMPILER)
-
-    // for youtube player
-    implementation(Youtube.YOUTUBE_WEB_PLAYER)
 
     // for dagger-hilt (DI)
     implementation(DaggerHilt.DAGGER_HILT)
