@@ -73,6 +73,9 @@ dependencies {
     implementation(RxJava.RX_ANDROID)
     implementation(RxJava.RX_KOTLIN)
 
+    // for avatar-view
+    implementation(Avatar.COIL)
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
