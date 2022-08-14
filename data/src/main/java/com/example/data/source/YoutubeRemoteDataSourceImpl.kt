@@ -1,4 +1,4 @@
-package com.example.data.datasource
+package com.example.data.source
 
 import com.example.data.model.YoutubeVideo
 import com.example.data.model.YoutubeVideoInfo
