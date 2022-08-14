@@ -1,7 +1,7 @@
-package kr.co.js.youtube_api.model.network
+package com.example.data.service
 
-import kr.co.js.youtube_api.model.vo.YoutubeVideo
-import kr.co.js.youtube_api.model.vo.YoutubeVideoInfo
+import com.example.data.model.YoutubeVideo
+import com.example.data.model.YoutubeVideoInfo
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

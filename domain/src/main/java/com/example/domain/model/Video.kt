@@ -1,4 +1,4 @@
-package kr.co.js.youtube_api.model.vo
+package com.example.domain.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

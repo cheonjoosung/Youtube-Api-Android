@@ -1,11 +1,8 @@
-package kr.co.js.youtube_api.model.vo
+package com.example.data.model
 
-import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class YoutubeVideo(
     @SerializedName("kind")
     @Expose
@@ -25,9 +22,8 @@ data class YoutubeVideo(
     @SerializedName("items")
     @Expose
     val items: List<Items>?
-) : Parcelable
+)
 
-@Parcelize
 data class PageInfo(
     @SerializedName("totalResults")
     @Expose
@@ -35,9 +31,8 @@ data class PageInfo(
     @SerializedName("resultsPerPage")
     @Expose
     val resultsPerPage: Int
-) : Parcelable
+)
 
-@Parcelize
 data class Items(
     @SerializedName("id")
     @Expose
@@ -45,9 +40,8 @@ data class Items(
     @SerializedName("snippet")
     @Expose
     val snippet: Snippet
-) : Parcelable
+)
 
-@Parcelize
 data class Id(
     @SerializedName("kind")
     @Expose
@@ -55,9 +49,8 @@ data class Id(
     @SerializedName("videoId")
     @Expose
     val videoId: String
-) : Parcelable
+)
 
-@Parcelize
 data class Snippet(
     @SerializedName("publishedAt")
     @Expose
@@ -80,16 +73,14 @@ data class Snippet(
     @SerializedName("channelTitle")
     @Expose
     val channelTitle: String,
-) : Parcelable
+)
 
-@Parcelize
 data class ThumbNail(
     @SerializedName("medium")
     @Expose
     val medium: Medium
-) : Parcelable
+)
 
-@Parcelize
 data class Medium(
     @SerializedName("url")
     @Expose
@@ -100,4 +91,4 @@ data class Medium(
     @SerializedName("height")
     @Expose
     val height: Int
-) : Parcelable
+)

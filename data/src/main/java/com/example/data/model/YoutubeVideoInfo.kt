@@ -1,12 +1,9 @@
-package kr.co.js.youtube_api.model.vo
+package com.example.data.model
 
-import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
 
-@Parcelize
 data class YoutubeVideoInfo(
     @SerializedName("kind")
     @Expose
@@ -17,9 +14,8 @@ data class YoutubeVideoInfo(
     @SerializedName("items")
     @Expose
     val items: List<TrendItem>?
-) : Parcelable
+)
 
-@Parcelize
 data class TrendItem(
     @SerializedName("kind")
     @Expose
@@ -46,18 +42,16 @@ data class TrendItem(
     @SerializedName("statistics")
     @Expose
     val statistics: Statistics
-) : Parcelable
+)
 
-@Parcelize
 data class ContentDetails(
     @SerializedName("duration")
     @Expose
     val duration: String
-) : Parcelable
+)
 
-@Parcelize
 data class Statistics(
     @SerializedName("viewCount")
     @Expose
     val viewCount: String? = ""
-) : Parcelable
+)
