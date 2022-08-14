@@ -40,15 +40,3 @@ object NetworkModule {
         return retrofit.create(YoutubeApiService::class.java)
     }
 }
-/*
-    val retrofit: YoutubeApiService = Retrofit.Builder()
-        .baseUrl(youtubeBaseUrl)
-        .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .client(
-            OkHttpClient.Builder().addInterceptor(
-                HttpLoggingInterceptor().apply { this.level = HttpLoggingInterceptor.Level.BODY }
-            ).build())
-        .build()
-        .create(YoutubeApiService::class.java)
- */
