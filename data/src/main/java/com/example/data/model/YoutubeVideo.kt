@@ -21,7 +21,7 @@ data class YoutubeVideo(
     val pageInfo: PageInfo,
     @SerializedName("items")
     @Expose
-    val items: List<Items>?
+    val items: List<Items>?,
 )
 
 data class PageInfo(

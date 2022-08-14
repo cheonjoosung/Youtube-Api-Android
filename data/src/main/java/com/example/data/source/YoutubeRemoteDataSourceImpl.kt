@@ -4,6 +4,7 @@ import com.example.data.model.YoutubeVideo
 import com.example.data.model.YoutubeVideoInfo
 import com.example.data.service.YoutubeApiService
 import retrofit2.Response
+import retrofit2.Retrofit
 import javax.inject.Inject
 
 class YoutubeRemoteDataSourceImpl @Inject constructor(
