@@ -47,3 +47,7 @@ object RxJava {
     const val RX_ANDROID = "io.reactivex.rxjava2:rxandroid:2.1.1"
     const val RX_KOTLIN = "io.reactivex.rxjava2:rxkotlin:2.4.0"
 }
+
+object Avatar {
+    const val COIL = "io.getstream:avatarview-coil:1.0.5"
+}

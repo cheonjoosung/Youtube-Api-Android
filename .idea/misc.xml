@@ -14,8 +14,11 @@
         <entry key="app/src/main/res/layout/fragment_trend_video.xml" value="0.2980072463768116" />
         <entry key="app/src/main/res/layout/item_video.xml" value="0.33" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3990740740740741" />
+        <entry key="presentation/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.139" />
         <entry key="presentation/src/main/res/drawable/ic_baseline_my_24.xml" value="0.263" />
         <entry key="presentation/src/main/res/layout/activity_main.xml" value="0.3704710144927536" />
+        <entry key="presentation/src/main/res/layout/fragment_trend_video.xml" value="0.4148550724637681" />
+        <entry key="presentation/src/main/res/layout/item_trend_video.xml" value="0.19166666666666668" />
         <entry key="presentation/src/main/res/menu/bottom_nav_menu.xml" value="0.4901041666666667" />
         <entry key="presentation/src/main/res/xml/root_preferences.xml" value="0.3704710144927536" />
       </map>
