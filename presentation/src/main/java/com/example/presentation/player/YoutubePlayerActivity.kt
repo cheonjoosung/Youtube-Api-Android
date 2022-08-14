@@ -8,7 +8,9 @@ import com.example.presentation.databinding.ActivityYoutubePlayerBinding
 import com.example.utils.VideoUtil
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class YoutubePlayerActivity : AppCompatActivity() {
 
     companion object {

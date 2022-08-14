@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.presentation.MainActivity
 import com.example.presentation.databinding.FragmentSearchVideoBinding
 import com.example.presentation.player.YoutubePlayerActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchVideoFragment : Fragment() {
 
     companion object {

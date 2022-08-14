@@ -3,7 +3,9 @@ package com.example.presentation.setting
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat
 import com.example.presentation.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SettingsFragment : PreferenceFragmentCompat() {
 
     companion object {
