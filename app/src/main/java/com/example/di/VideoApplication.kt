@@ -1,4 +1,4 @@
-package kr.co.js.youtube_api.ui
+package com.example.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

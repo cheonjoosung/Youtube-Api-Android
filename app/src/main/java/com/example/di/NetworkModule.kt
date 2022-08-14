@@ -1,4 +1,4 @@
-package com.example.domain.model.kr.co.js.youtube_api.di
+package com.example.di
 
 import com.example.data.service.YoutubeApiService
 import dagger.Module
