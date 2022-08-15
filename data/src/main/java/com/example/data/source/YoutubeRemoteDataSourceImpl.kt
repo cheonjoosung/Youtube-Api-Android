@@ -29,7 +29,7 @@ class YoutubeRemoteDataSourceImpl @Inject constructor(
             query = searchText,
             nextPageToken = nextPageToken,
             videoOrder = "relevance",
-            maxResults = 20
+            maxResults = 10
         )
     }
 
@@ -42,6 +42,6 @@ class YoutubeRemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getTrendYoutubeVideo(): Response<YoutubeVideoInfo> {
         return youtubeApiService.getYoutubeTrendVideos(
-            apiKey = apiKey, regionCode = Utils().getISORegionCode(), maxResults = 50)
+            apiKey = apiKey, regionCode = Utils().getISORegionCode(), maxResults = 10)
     }
 }
