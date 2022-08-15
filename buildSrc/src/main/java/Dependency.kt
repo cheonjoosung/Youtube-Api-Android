@@ -51,3 +51,10 @@ object RxJava {
 object Avatar {
     const val COIL = "io.getstream:avatarview-coil:1.0.5"
 }
+
+object Room {
+    const val ROOM_KTX = "androidx.room:room-ktx:2.4.3"
+    const val ROOM_RUNTIME = "androidx.room:room-runtime:2.4.3"
+    const val ROOM_COMPILER = "androidx.room:room-compiler:2.4.3"
+    const val ROOM_TESTING = "androidx.room:room-testing:2.4.3"
+}

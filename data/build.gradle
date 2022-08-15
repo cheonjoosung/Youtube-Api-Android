@@ -55,6 +55,13 @@ dependencies {
     implementation(OkHttp.LOGGING_INTERCEPTOR)
     implementation(OkHttp.OKHTTP)
 
+    // for Room
+    implementation(Room.ROOM_KTX)
+    implementation(Room.ROOM_RUNTIME)
+    annotationProcessor(Room.ROOM_COMPILER)
+    kapt(Room.ROOM_COMPILER)
+    androidTestImplementation(Room.ROOM_TESTING)
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
