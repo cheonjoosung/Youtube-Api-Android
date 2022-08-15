@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.ApiResult
-import com.example.domain.model.Video
-import com.example.domain.usecase.ChannelInfoUseCase
-import com.example.domain.usecase.SearchVideoUseCase
-import com.example.domain.usecase.VideoInfoUseCase
+import com.example.domain.model.remote.Video
+import com.example.domain.usecase.remote.ChannelInfoUseCase
+import com.example.domain.usecase.remote.SearchVideoUseCase
+import com.example.domain.usecase.remote.VideoInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 import javax.inject.Inject

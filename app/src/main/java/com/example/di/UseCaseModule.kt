@@ -1,8 +1,8 @@
 package com.example.di
 
 import com.example.domain.repository.YoutubeRepository
-import com.example.domain.usecase.SearchVideoUseCase
-import com.example.domain.usecase.VideoInfoUseCase
+import com.example.domain.usecase.remote.SearchVideoUseCase
+import com.example.domain.usecase.remote.VideoInfoUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

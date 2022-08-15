@@ -1,7 +1,7 @@
 package com.example.presentation.trend
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.domain.model.VideoInfo
+import com.example.domain.model.remote.VideoInfo
 
 class DiffUtilCallback(
     private val oldList: List<VideoInfo>,

@@ -1,6 +1,10 @@
 package com.example.domain.repository
 
 import com.example.domain.model.*
+import com.example.domain.model.remote.ChannelInfo
+import com.example.domain.model.remote.TrendVideoResult
+import com.example.domain.model.remote.VideoInfo
+import com.example.domain.model.remote.VideoResult
 
 interface YoutubeRepository {
     suspend fun searchYoutube(searchKeyword: String): ApiResult<VideoResult>

@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.domain.model.VideoInfo
+import com.example.domain.model.remote.VideoInfo
 import com.example.presentation.R
 import com.example.utils.VideoUtil
 

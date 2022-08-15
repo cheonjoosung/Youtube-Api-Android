@@ -1,7 +1,7 @@
-package com.example.domain.usecase
+package com.example.domain.usecase.remote
 
 import com.example.domain.model.ApiResult
-import com.example.domain.model.VideoResult
+import com.example.domain.model.remote.VideoResult
 import com.example.domain.repository.YoutubeRepository
 import javax.inject.Inject
 

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.domain.model.Video
+import com.example.domain.model.remote.Video
 import com.example.presentation.databinding.ItemVideoBinding
 import com.example.utils.VideoUtil
 

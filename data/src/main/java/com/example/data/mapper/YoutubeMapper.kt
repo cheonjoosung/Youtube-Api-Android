@@ -1,10 +1,10 @@
 package com.example.data.mapper
 
-import android.util.Log
 import com.example.data.model.YoutubeChannelInfo
 import com.example.data.model.YoutubeVideo
 import com.example.data.model.YoutubeVideoInfo
 import com.example.domain.model.*
+import com.example.domain.model.remote.*
 
 object YoutubeMapper {
 

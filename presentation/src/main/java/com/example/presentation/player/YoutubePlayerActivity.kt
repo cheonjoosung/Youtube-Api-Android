@@ -3,7 +3,7 @@ package com.example.presentation.player
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.domain.model.Video
+import com.example.domain.model.remote.Video
 import com.example.presentation.databinding.ActivityYoutubePlayerBinding
 import com.example.utils.VideoUtil
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer

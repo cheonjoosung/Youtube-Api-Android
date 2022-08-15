@@ -1,10 +1,10 @@
-package com.example.domain.model
+package com.example.domain.model.remote
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class VideoInfo(
+data class Video(
 
     val videoId: String,
 
