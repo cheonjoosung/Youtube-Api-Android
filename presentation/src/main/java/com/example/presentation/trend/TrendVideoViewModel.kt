@@ -7,15 +7,17 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.model.ApiResult
 import com.example.domain.model.Video
 import com.example.domain.model.VideoInfo
+import com.example.domain.usecase.ChannelInfoUseCase
 import com.example.domain.usecase.TrendVideoUseCase
 import com.example.presentation.search.SearchVideoViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import javax.inject.Inject
 
 @HiltViewModel
 class TrendVideoViewModel @Inject constructor(
-    private val trendVideoUseCase: TrendVideoUseCase
+    private val trendVideoUseCase: TrendVideoUseCase,
+    private val channelInfoUseCase: ChannelInfoUseCase
 ) : ViewModel() {
 
     companion object {
@@ -31,7 +33,50 @@ class TrendVideoViewModel @Inject constructor(
             when (this) {
                 is ApiResult.Success -> {
                     Log.e(TAG, "Success Trend Video")
-                    trendVideoList.postValue(this.value.videoList)
+
+                    val searchResultList = mutableListOf<VideoInfo>()
+                    searchResultList.addAll(this.value.videoList)
+
+                    coroutineScope {
+
+                        (searchResultList.indices).map { idx ->
+
+                            async(Dispatchers.IO) {
+                                channelInfoUseCase.invoke(searchResultList[idx].channelId)
+                                    .run {
+                                        when (this) {
+                                            is ApiResult.Success -> {
+
+                                                this.value.let { videoInfo ->
+                                                    Log.e(
+                                                        SearchVideoViewModel.TAG,
+                                                        "Success ChannelInfo"
+                                                    )
+
+                                                    searchResultList.find { video ->
+                                                        video.videoId == searchResultList[idx].videoId
+                                                    }?.let { findVideo ->
+                                                        findVideo.channelImgUrl =
+                                                            videoInfo.imgUrl
+                                                    }
+
+                                                }
+                                            }
+
+                                            else -> {
+                                                Log.e(
+                                                    SearchVideoViewModel.TAG,
+                                                    "onFailure ChannelInfo"
+                                                )
+                                            }
+                                        }
+                                    }
+                            }
+
+                        }.awaitAll()
+
+                        trendVideoList.postValue(searchResultList)
+                    }
                 }
 
                 else -> {

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.ApiResult
 import com.example.domain.model.Video
+import com.example.domain.usecase.ChannelInfoUseCase
 import com.example.domain.usecase.SearchVideoUseCase
 import com.example.domain.usecase.VideoInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchVideoViewModel @Inject constructor(
     private val searchVideoUseCase: SearchVideoUseCase,
-    private val videoInfoUseCase: VideoInfoUseCase
+    private val videoInfoUseCase: VideoInfoUseCase,
+    private val channelInfoUseCase: ChannelInfoUseCase
 ) : ViewModel() {
 
     companion object {
@@ -45,33 +47,77 @@ class SearchVideoViewModel @Inject constructor(
                     val idList = searchResultList.map { it.videoId }
 
                     coroutineScope {
-                        (idList.indices).map { idx ->
-                            async(Dispatchers.IO) {
 
-                                videoInfoUseCase.invoke(idList[idx]).run {
-                                    when (this) {
-                                        is ApiResult.Success -> {
+                        val deferred = listOf(
+                            async {
+                                (idList.indices).map { idx ->
 
-                                            this.value.let { videoInfo ->
-                                                Log.e(TAG, "Success VideoInfo $videoInfo")
+                                    async(Dispatchers.IO) {
 
-                                                searchResultList.find { video ->
-                                                    video.videoId == idList[idx]
-                                                }?.let { findVideo ->
-                                                    findVideo.duration = videoInfo.duration
-                                                    findVideo.viewCount = videoInfo.viewCount
+                                        videoInfoUseCase.invoke(idList[idx]).run {
+                                            when (this) {
+                                                is ApiResult.Success -> {
+
+                                                    this.value.let { videoInfo ->
+                                                        Log.e(TAG, "Success VideoInfo")
+
+                                                        searchResultList.find { video ->
+                                                            video.videoId == idList[idx]
+                                                        }?.let { findVideo ->
+                                                            findVideo.duration = videoInfo.duration
+                                                            findVideo.viewCount =
+                                                                videoInfo.viewCount
+                                                        }
+
+                                                    }
                                                 }
 
+                                                else -> {
+                                                    Log.e(TAG, "onFailure VideoInfo")
+                                                }
                                             }
                                         }
-
-                                        else -> {
-                                            Log.e(TAG, "onFailure VideoInfo}")
-                                        }
                                     }
-                                }
+
+                                }.awaitAll()
+                            },
+
+                            async {
+                                (searchResultList.indices).map { idx ->
+
+                                    async(Dispatchers.IO) {
+                                        channelInfoUseCase.invoke(searchResultList[idx].channelId)
+                                            .run {
+                                                when (this) {
+                                                    is ApiResult.Success -> {
+
+                                                        this.value.let { videoInfo ->
+                                                            Log.e(
+                                                                TAG,
+                                                                "Success ChannelInfo"
+                                                            )
+
+                                                            searchResultList.find { video ->
+                                                                video.videoId == searchResultList[idx].videoId
+                                                            }?.let { findVideo ->
+                                                                findVideo.channelImgUrl =
+                                                                    videoInfo.imgUrl
+                                                            }
+
+                                                        }
+                                                    }
+
+                                                    else -> {
+                                                        Log.e(TAG, "onFailure ChannelInfo")
+                                                    }
+                                                }
+                                            }
+                                    }
+
+                                }.awaitAll()
                             }
-                        }.awaitAll()
+                        )
+                        deferred.awaitAll()
 
                         firstSearch.postValue(searchResultList)
                     }
@@ -106,33 +152,77 @@ class SearchVideoViewModel @Inject constructor(
                     val idList = searchResultList.map { it.videoId }
 
                     coroutineScope {
-                        (idList.indices).map { idx ->
-                            async(Dispatchers.IO) {
+                        val deferred = listOf(
 
-                                videoInfoUseCase.invoke(idList[idx]).run {
-                                    when (this) {
-                                        is ApiResult.Success -> {
+                            async {
+                                (idList.indices).map { idx ->
+                                    async(Dispatchers.IO) {
 
-                                            this.value.let { videoInfo ->
-                                                Log.e(TAG, "Success VideoInfo $videoInfo")
+                                        videoInfoUseCase.invoke(idList[idx]).run {
+                                            when (this) {
+                                                is ApiResult.Success -> {
 
-                                                searchResultList.find { video ->
-                                                    video.videoId == idList[idx]
-                                                }?.let { findVideo ->
-                                                    findVideo.duration = videoInfo.duration
-                                                    findVideo.viewCount = videoInfo.viewCount
+                                                    this.value.let { videoInfo ->
+                                                        Log.e(TAG, "Success VideoInfo")
+
+                                                        searchResultList.find { video ->
+                                                            video.videoId == idList[idx]
+                                                        }?.let { findVideo ->
+                                                            findVideo.duration = videoInfo.duration
+                                                            findVideo.viewCount =
+                                                                videoInfo.viewCount
+                                                        }
+
+                                                    }
                                                 }
 
+                                                else -> {
+                                                    Log.e(TAG, "onFailure VideoInfo")
+                                                }
                                             }
                                         }
-
-                                        else -> {
-                                            Log.e(TAG, "onFailure VideoInfo}")
-                                        }
                                     }
-                                }
+                                }.awaitAll()
+                            },
+
+                            async {
+                                (searchResultList.indices).map { idx ->
+
+                                    async(Dispatchers.IO) {
+                                        channelInfoUseCase.invoke(searchResultList[idx].channelId)
+                                            .run {
+                                                when (this) {
+                                                    is ApiResult.Success -> {
+
+                                                        this.value.let { videoInfo ->
+                                                            Log.e(
+                                                                TAG,
+                                                                "Success ChannelInfo"
+                                                            )
+
+                                                            searchResultList.find { video ->
+                                                                video.videoId == searchResultList[idx].videoId
+                                                            }?.let { findVideo ->
+                                                                findVideo.channelImgUrl =
+                                                                    videoInfo.imgUrl
+                                                            }
+
+                                                        }
+                                                    }
+
+                                                    else -> {
+                                                        Log.e(TAG, "onFailure ChannelInfo")
+                                                    }
+                                                }
+                                            }
+                                    }
+
+                                }.awaitAll()
                             }
-                        }.awaitAll()
+
+                        )
+
+                        deferred.awaitAll()
 
                         moreSearch.postValue(searchResultList)
                     }

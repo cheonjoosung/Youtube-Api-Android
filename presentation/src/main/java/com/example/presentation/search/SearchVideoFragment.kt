@@ -58,6 +58,10 @@ class SearchVideoFragment : Fragment() {
                         startActivity(this)
                     }
                 }
+
+                videoLongClick = { video ->
+
+                }
             }
         }
 

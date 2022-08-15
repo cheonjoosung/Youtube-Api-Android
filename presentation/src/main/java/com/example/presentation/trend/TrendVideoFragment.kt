@@ -1,5 +1,6 @@
 package com.example.presentation.trend
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.presentation.databinding.FragmentTrendVideoBinding
+import com.example.presentation.player.YoutubePlayerActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,9 +43,10 @@ class TrendVideoFragment : Fragment() {
 
             binding.rvTrendList.adapter = TrendVideoAdapter(list.toMutableList()).apply {
                 onVideoClick = { video ->
-                    Toast.makeText(requireContext(), "Click $video", Toast.LENGTH_SHORT).show()
-//                    video.numberOfTimes += 1
-//                    videoClickListener.videoClick(video.convertToVideo(video))
+                    Intent(requireContext(), YoutubePlayerActivity::class.java).apply {
+                        putExtra(YoutubePlayerActivity.VIDEO, video)
+                        startActivity(this)
+                    }
                 }
 
                 onVideoLongClick = { video ->
@@ -63,8 +66,7 @@ class TrendVideoFragment : Fragment() {
                 }
 
                 onVideoMoreClick = { video, view ->
-                    Toast.makeText(requireContext(), "onVideoMoreClick $video", Toast.LENGTH_SHORT).show()
-                    //showPopup(video, view)
+                    Toast.makeText(requireContext(), "onVideoMoreClick", Toast.LENGTH_SHORT).show()
                 }
             }
         }

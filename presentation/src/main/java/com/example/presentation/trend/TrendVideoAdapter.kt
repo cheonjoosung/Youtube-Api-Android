@@ -1,5 +1,6 @@
 package com.example.presentation.trend
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,6 @@ import com.bumptech.glide.Glide
 import com.example.domain.model.VideoInfo
 import com.example.presentation.R
 import com.example.utils.VideoUtil
-import io.getstream.avatarview.AvatarView
 
 class TrendVideoAdapter(
     private val trendList: MutableList<VideoInfo>,
@@ -33,7 +33,7 @@ class TrendVideoAdapter(
         val tvVideoViewCount: TextView = view.findViewById(R.id.tv_video_view_count)
         val tvDuration: TextView = view.findViewById(R.id.tv_video_duration)
 
-        val tvChannelLogo: AvatarView = view.findViewById(R.id.avatar_view)
+        val ivChannelLogo: ImageView = view.findViewById(R.id.iv_channel_logo)
 
         val ivThumbnail: ImageView = view.findViewById(R.id.iv_video_thumbnail)
         val ivMore: ImageView = view.findViewById(R.id.iv_more)
@@ -49,16 +49,17 @@ class TrendVideoAdapter(
 
         holder.apply {
             val video = trendList[position]
+            Log.e("CJS", "trendVideo $video")
 
             tvVideoTitle.text = video.title
             tvVideoChannelName.text = video.channelTitle
             tvVideoDate.text = utils.convertPublishedDate(video.publishedAt)
             tvVideoViewCount.text = utils.convertViewCount(video.viewCount)
-            tvChannelLogo.avatarInitials = when (video.channelTitle.length) {
-                0 -> "채널"
-                1 -> video.channelTitle
-                else -> video.channelTitle.substring(0, 2)
-            }
+
+            Glide.with(holder.itemView.context)
+                .load(video.channelImgUrl)
+                .into(ivChannelLogo)
+
             tvDuration.text = utils.convertDurationToHHMMSS(video.duration)
 
             Glide.with(holder.itemView.context)

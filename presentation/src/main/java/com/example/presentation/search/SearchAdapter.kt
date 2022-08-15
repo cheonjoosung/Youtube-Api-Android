@@ -13,10 +13,12 @@ class SearchAdapter(
 ) : RecyclerView.Adapter<SearchAdapter.VideoViewHolder>() {
 
     var videoClick: ((Video) -> Unit)? = null
+    var videoLongClick: ((Video) -> Unit)? = null
 
     class VideoViewHolder(
         private val binding: ItemVideoBinding,
-        private val videoClick: ((Video) -> Unit)?
+        private val videoClick: ((Video) -> Unit)?,
+        private val videoLongClick: ((Video) -> Unit)?
     ) : RecyclerView.ViewHolder(binding.root) {
 
         private val utils = VideoUtil()
@@ -30,11 +32,20 @@ class SearchAdapter(
                 tvVideoDuration.text = utils.convertDurationToHHMMSS(video.duration)
 
                 Glide.with(itemView.context)
+                    .load(video.channelImgUrl)
+                    .into(ivChannelLogo)
+
+                Glide.with(itemView.context)
                     .load(video.imgUrl)
                     .into(ivVideoThumbnail)
 
-                binding.clVideoItem.setOnClickListener {
+                clVideoItem.setOnClickListener {
                     videoClick?.invoke(video)
+                }
+
+                clVideoItem.setOnLongClickListener {
+                    videoLongClick?.invoke(video)
+                    true
                 }
             }
         }
@@ -42,7 +53,7 @@ class SearchAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
         val binding = ItemVideoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return VideoViewHolder(binding, videoClick)
+        return VideoViewHolder(binding, videoClick, videoLongClick)
     }
 
     override fun onBindViewHolder(holder: VideoViewHolder, position: Int) {
