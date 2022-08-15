@@ -1,7 +1,6 @@
 package com.example.data
 
 import com.example.data.mapper.YoutubeMapper
-import com.example.data.model.YoutubeVideoInfo
 import com.example.data.source.YoutubeRemoteDataSource
 import com.example.domain.model.*
 import com.example.domain.repository.YoutubeRepository
@@ -28,6 +27,10 @@ class YoutubeRepositoryImpl @Inject constructor(
 
     override suspend fun getYoutubeTrendVideo(): ApiResult<TrendVideoResult> {
         return YoutubeMapper.youtubeTrendMapper(youtubeRemoteDataSource.getTrendYoutubeVideo().body())
+    }
+
+    override suspend fun getYoutubeChannelInfo(channelId: String): ApiResult<ChannelInfo> {
+        return YoutubeMapper.youtubeChannelMapper(youtubeRemoteDataSource.getYoutubeChannelInfo(channelId).body())
     }
 
 }

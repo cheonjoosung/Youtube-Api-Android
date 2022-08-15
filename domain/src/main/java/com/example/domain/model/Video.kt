@@ -20,5 +20,9 @@ data class Video(
 
     val channelTitle: String,
 
-    var viewCount: String = "0"
+    var viewCount: String = "0",
+
+    val channelId: String,
+
+    var channelImgUrl: String = ""
 ) : Parcelable

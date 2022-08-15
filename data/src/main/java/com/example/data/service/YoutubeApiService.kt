@@ -1,5 +1,6 @@
 package com.example.data.service
 
+import com.example.data.model.YoutubeChannelInfo
 import com.example.data.model.YoutubeVideo
 import com.example.data.model.YoutubeVideoInfo
 import retrofit2.Response
@@ -46,4 +47,11 @@ interface YoutubeApiService {
         @Query("chart") chart: String = "mostPopular",
         @Query("part") part: String = "snippet, contentDetails, statistics",
     ): Response<YoutubeVideoInfo>
+
+    @GET("channels")
+    suspend fun getYoutubeChannelInfo(
+        @Query("key") apiKey: String,
+        @Query("id") channelId: String,
+        @Query("part") part: String = "snippet",
+    ): Response<YoutubeChannelInfo>
 }

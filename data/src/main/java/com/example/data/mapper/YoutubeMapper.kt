@@ -1,5 +1,7 @@
 package com.example.data.mapper
 
+import android.util.Log
+import com.example.data.model.YoutubeChannelInfo
 import com.example.data.model.YoutubeVideo
 import com.example.data.model.YoutubeVideoInfo
 import com.example.domain.model.*
@@ -31,7 +33,8 @@ object YoutubeMapper {
                                 description = snippet.description,
                                 publishedAt = snippet.publishedAt,
                                 imgUrl = snippet.thumbnails.medium.url,
-                                channelTitle = snippet.channelTitle
+                                channelTitle = snippet.channelTitle,
+                                channelId = snippet.channelId
                             )
                         )
 
@@ -62,7 +65,8 @@ object YoutubeMapper {
                         description = "",
                         imgUrl = "",
                         publishedAt = "",
-                        channelTitle = ""
+                        channelTitle = "",
+                        channelId = ""
                     )
                 )
             } ?: run {
@@ -94,7 +98,8 @@ object YoutubeMapper {
                             imgUrl = item.snippet.thumbnails.medium.url,
                             channelTitle = item.snippet.channelTitle,
                             duration = item.contentDetails.duration,
-                            viewCount = item.statistics.viewCount ?: "0"
+                            viewCount = item.statistics.viewCount ?: "0",
+                            channelId = item.snippet.channelId
                         )
                     )
                 }
@@ -106,6 +111,27 @@ object YoutubeMapper {
                 ApiResult.Error()
             }
 
+        }
+    }
+
+    fun youtubeChannelMapper(
+        youtubeChannelInfo: YoutubeChannelInfo?
+    ): ApiResult<ChannelInfo> {
+
+        return if (youtubeChannelInfo?.items.isNullOrEmpty()) ApiResult.Error()
+        else {
+            youtubeChannelInfo?.items?.get(0)?.let { info ->
+                ApiResult.Success(
+                    ChannelInfo(
+                        title = "",
+                        description = "",
+                        imgUrl = info.snippet.thumbnails.medium.url
+                    )
+                )
+
+            } ?: run {
+                ApiResult.Error()
+            }
         }
     }
 }

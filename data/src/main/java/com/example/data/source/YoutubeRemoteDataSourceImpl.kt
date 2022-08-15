@@ -1,5 +1,7 @@
 package com.example.data.source
 
+import android.util.Log
+import com.example.data.model.YoutubeChannelInfo
 import com.example.data.model.YoutubeVideo
 import com.example.data.model.YoutubeVideoInfo
 import com.example.data.service.YoutubeApiService
@@ -42,6 +44,13 @@ class YoutubeRemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getTrendYoutubeVideo(): Response<YoutubeVideoInfo> {
         return youtubeApiService.getYoutubeTrendVideos(
-            apiKey = apiKey, regionCode = Utils().getISORegionCode(), maxResults = 10)
+            apiKey = apiKey, regionCode = Utils().getISORegionCode(), maxResults = 10
+        )
+    }
+
+    override suspend fun getYoutubeChannelInfo(channelId: String): Response<YoutubeChannelInfo> {
+        return youtubeApiService.getYoutubeChannelInfo(
+            apiKey = apiKey, channelId = channelId
+        )
     }
 }

@@ -10,4 +10,6 @@ interface YoutubeRepository {
     suspend fun getYoutubeVideoInfo(videoId: String): ApiResult<VideoInfo>
 
     suspend fun getYoutubeTrendVideo(): ApiResult<TrendVideoResult>
+
+    suspend fun getYoutubeChannelInfo(channelId: String): ApiResult<ChannelInfo>
 }
