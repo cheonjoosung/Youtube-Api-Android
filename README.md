@@ -9,7 +9,20 @@ This is "Youtube Api Sample" using youtube api(search & video) and used Pierfran
 - MVVM + Clean Architectrue, AAC
 
 ## App Structure
-
+|── app
+|   └── di
+|       ├── 
+|       ├── 
+|       ├── 
+|       ├── 
+|       └── 
+|── buildSrc
+|
+|── data
+|
+|── domain
+|
+|── prsentation
 
 ## Sample
 <img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/sample.gif">
