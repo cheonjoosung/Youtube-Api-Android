@@ -65,7 +65,7 @@ class TrendVideoFragment : Fragment() {
 //                    videoViewModel.addOrRemoveFavoriteVideo(video.convertToVideo(video))
                 }
 
-                onVideoMoreClick = { video, view ->
+                onVideoMoreClick = { _ , _ ->
                     Toast.makeText(requireContext(), "onVideoMoreClick", Toast.LENGTH_SHORT).show()
                 }
             }

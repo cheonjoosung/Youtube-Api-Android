@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_my">
+    app:startDestination="@+id/navigation_trend">
 
-    <fragment
-        android:id="@+id/navigation_my"
-        android:name="com.example.presentation.my.MyVideoFragment"
-        android:label="@string/fragment_my_title"
-        tools:layout="@layout/fragment_my_video" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_my"-->
+<!--        android:name="com.example.presentation.my.MyVideoFragment"-->
+<!--        android:label="@string/fragment_my_title"-->
+<!--        tools:layout="@layout/fragment_my_video" />-->
 
     <fragment
         android:id="@+id/navigation_trend"

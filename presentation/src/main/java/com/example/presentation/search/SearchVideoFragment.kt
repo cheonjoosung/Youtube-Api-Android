@@ -59,7 +59,7 @@ class SearchVideoFragment : Fragment() {
                     }
                 }
 
-                videoLongClick = { video ->
+                videoLongClick = { _ ->
 
                 }
             }
