@@ -3,29 +3,98 @@
 This is "Youtube Api Sample" using youtube api(search & video) and used PierfrancescoSoffritti/android-youtube-player.
 이 앱은 유튜브 API(search & video)를 사용하여 만든 샘플이고 PierfrancescoSoffritti/android-youtube-player을 사용했습니다.
 
-## Stack & Skill
+## Stack & Skill (스택 기술)
 - Kotlin & Android
-- Retrofit2, Room, Glide, Hilt, ViewBinding
+- Retrofit2, Glide, Hilt, ViewBinding
 - MVVM + Clean Architectrue, AAC
 
-## App Structure
+## App Structure (앱 구조)
 |── app
 |   └── di
-|       ├── 
-|       ├── 
-|       ├── 
-|       ├── 
-|       └── 
+|       ├── DataSourceMoudle.kt
+|       ├── NetworkModule.kt
+|       ├── RepositoryModule.kt
+|       ├── UseCaseModule.kt
+|       └── VideoApplication.kt
+|
 |── buildSrc
+|   └── Dependency.kt
 |
 |── data
+|    └── mapper
+|    |    └── YoutubeMapper.kt
+|    |
+|    └── model
+|    |    └── YoutubeChannelInfo.kt
+|    |    └── YoutubeVideo.kt
+|    |    └── YoutubeVideoInfo.kt
+|    |
+|    └── service
+|    |    └── YoutubeApiService
+|    |
+|    └── source
+|    |    └── YoutubeRemoteDataSource.kt
+|    |    └── YoutubeRemoteDataSourceImpl.kt
+|    |
+|    └── utils
+|    |    └── Utils.kt
+|    |
+|    └── YoutubeRepositoryImpl.kt
 |
 |── domain
+|    └── model
+|    |    └── local
+|    |    └── remote
+|    |    |     └── ChannelInfo.kt
+|    |    |     └── TrendVIdeoResult.kt
+|    |    |     └── Video.kt
+|    |    |     └── VideoInfo.kt
+|    |    |     └── VideoResult.kt
+|    |    |     
+|    |    └── ApiResult.kt
+|    |
+|    └── repository
+|    |    └── YoutubeRepository.kt
+|    |
+|    └── usecase
+|    |    └── local
+|    |    └── remote
+|    |    |    └── ChannelInfoUseCase.kt
+|    |    |    └── SearchVideoUseCase.kt
+|    |    |    └── TrendVideoUseCase.kt
+|    |    |    └── VideoInfoUseCase.kt
 |
 |── prsentation
+|    └── my
+|    |    └── MyVideoFragment.kt
+|    |    └── MyVideoViewModel.kt
+|    |
+|    └── player
+|    |    └── YoutubePlayerActivity.kt
+|    |
+|    └── search
+|    |    └── SearchAdapter.kt
+|    |    └── SearchVideoFragment.kt
+|    |    └── SearchVideoViewModel.kt
+|    |
+|    └── setting
+|    |    └── SettingFragment.kt
+|    |    
+|    └── trend
+|    |    └── DiffUtilCallback.kt
+|    |    └── TrendVideoAdapter.kt
+|    |    └── TrendVideoFragment.kt
+|    |    └── TrendVideoViewModel.kt
+|    |
+|    └── MainActivity.kt
+|    └── MainActivityViewModel.kt
+└── utils
+|    └── VidoeUtil.kt
 
 ## Sample
-<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/sample.gif">
+|<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/trend.jpeg">|<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/search.jpeg">|
+|-|-|
+
 
 ## How to
 1. Go to [Google API](https://console.cloud.google.com/apis)
