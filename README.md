@@ -9,6 +9,7 @@ This is "Youtube Api Sample" using youtube api(search & video) and used Pierfran
 - MVVM + Clean Architectrue, AAC
 
 ## App Structure (앱 구조)
+```
 |── app
 |   └── di
 |       ├── DataSourceMoudle.kt
@@ -90,6 +91,7 @@ This is "Youtube Api Sample" using youtube api(search & video) and used Pierfran
 |    └── MainActivityViewModel.kt
 └── utils
 |    └── VidoeUtil.kt
+```
 
 ## Sample
 |<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/trend.jpeg">|<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/search.jpeg">|
