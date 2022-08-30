@@ -97,6 +97,10 @@ This is "Youtube Api Sample" using youtube api(search & video) and used Pierfran
 |<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/trend.jpeg">|<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/search.jpeg">|
 |-|-|
 
+## MVVM with Clean Architecture & Search Request Flow
+|<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/pattern.png">|<img src="https://github.com/cheonjoosung/Youtube-Search-Android/blob/master/image/search_example.png">|
+|-|-|
+
 
 ## How to
 1. Go to [Google API](https://console.cloud.google.com/apis)
